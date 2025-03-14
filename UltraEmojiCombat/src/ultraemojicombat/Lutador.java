@@ -10,8 +10,7 @@ package ultraemojicombat;
  */
 public class Lutador {
 
-    public Lutador(String pretty_Boy, String frança, int par, float par1, float par2, int par3, int par4, int par5) {
-    }
+ 
 
     //ATRIBUTOS
     private String nome;
@@ -26,6 +25,8 @@ public class Lutador {
 
     //MÉTODOS
     public void apresentar() {
+        System.out.println("CHEGOU A HORA! Apresentamos o lutador " + this.getNome());
+        System.out.println("Diretamente de " + this.getNacionalidade());
         System.out.println("Lutador: " + getNome());
         System.out.println("Origem: " + getNacionalidade());
         System.out.println(getIdade() + " Anos");
@@ -37,11 +38,10 @@ public class Lutador {
     }
 
     public void status() {
-        System.out.println(getNome());
-        System.out.println("É um peso " + getCategoria());
-        System.out.println("Vitorias " +  getVitorias());
-        System.out.println("Derrotas " + getDerrotas());
-        System.out.println("Empates " + getEmpates());
+        System.out.println(getNome() + " é um peso " + getCategoria());
+        System.out.println("Tem " +  getVitorias() + " vitórias");
+        System.out.println("Tem " + getDerrotas() + " derrotas");
+        System.out.println("Tem " + getEmpates() + " empates");
     }
 
     public void ganharLuta() {
@@ -57,12 +57,12 @@ public class Lutador {
     }
 
     //CONSTRUTOR
-    public void Lutador(String no, String na, int id, float al, float pe, int vi, int de, int em) {
+    public Lutador(String no, String na, int id, float al, float pe, int vi, int de, int em) {
         this.nome = no;
         this.nacionalidade = na;
         this.idade = id;
         this.altura = al;
-        setPeso(pe);
+        this.setPeso(pe);
         this.vitorias = vi;
         this.derrotas = de;
         this.empates = em;
@@ -108,18 +108,18 @@ public class Lutador {
 
     public void setPeso(float peso) {
         this.peso = peso;
+        this.setCategoria();
     }
 
     public String getCategoria() {
         return categoria;
     }
 
-    private void setCategoria(String categoria) {
-        this.categoria = categoria;
+    private void setCategoria() {
         if (peso < 52.2) {
             categoria = "Invalido";
         } else if (peso <= 70.3) {
-            categoria = "Leva";
+            categoria = "Leve";
         } else if (peso <= 83.9) {
             categoria = "Médio";
         } else if (peso <= 120.2) {
